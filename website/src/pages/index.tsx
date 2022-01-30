@@ -1,5 +1,5 @@
 import IframeResizer from 'iframe-resizer-react'
-import { iframeResize } from 'iframe-resizer'
+import { iframeResizer } from 'iframe-resizer'
 import Head from 'next/head'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { CSSProperties } from 'react'
@@ -31,7 +31,7 @@ export default function Home() {
     })
 
     useEffect(() => {
-        const iframes = iframeResize({ log: true }, iframeNode.current)
+        const iframes = iframeResizer({ log: true }, iframeNode.current as any)
     }, [])
 
     // useEffect(function _updateIframeContent() {
