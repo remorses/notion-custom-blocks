@@ -21,13 +21,16 @@ export default function Home() {
     const handleResize = useCallback(
         throttle(function handleResize() {
             if (!parent?.document) {
+                console.warn(`No document found for ${iframeSelector}`)
                 return
             }
             const iframe: HTMLElement | null =
                 parent.document.querySelector(iframeSelector)
             if (!iframe) {
+                console.warn(`No iframe found for ${iframeSelector}`)
                 return
             }
+            console.log('resizing')
             iframe.style.height = document.body.scrollHeight + 'px'
         }, 300),
         [],
