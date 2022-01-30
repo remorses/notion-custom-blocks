@@ -17,7 +17,7 @@ function Gallery({ cards }) {
 
 const cards = [null, null, null, null, null]
 export default function Home() {
-    const iframeSelector = '#xxx'
+    const iframeSelector = 'iframe'
     const handleResize = useCallback(
         throttle(function handleResize() {
             if (!parent?.document) {
