@@ -1,3 +1,5 @@
+import IframeResizer from 'iframe-resizer-react'
+import { iframeResize } from 'iframe-resizer'
 import Head from 'next/head'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { CSSProperties } from 'react'
@@ -28,6 +30,10 @@ export default function Home() {
         return 'xxx'
     })
 
+    useEffect(() => {
+        const iframes = iframeResize({ log: true }, iframeNode.current)
+    }, [])
+
     // useEffect(function _updateIframeContent() {
     //     const iframe = iframeNode.current!
 
@@ -53,12 +59,14 @@ export default function Home() {
                 id={frameId}
                 ref={iframeNode}
                 src={'/gallery'}
-                frameBorder={0}
+                width='100%'
                 scrolling='no'
+                // frameBorder={0}
+                // scrolling='no'
                 // style={child}
                 className='h-auto w-full max-w-full'
                 // sandbox='allow-scripts allow-popups allow-top-navigation-by-user-activation allow-forms allow-same-origin'
-                allowFullScreen
+                // allowFullScreen
                 // loading='lazy'
             />
         </div>

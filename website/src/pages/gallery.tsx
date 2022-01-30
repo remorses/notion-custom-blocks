@@ -7,7 +7,7 @@ function Card({}) {
 
 function Gallery({ cards }) {
     return (
-        <div className='flex w-full h-full flex-wrap gap-4'>
+        <div className='flex w-full flex-wrap gap-4'>
             {cards.map((c, i) => {
                 return <Card key={i} />
             })}
@@ -15,9 +15,13 @@ function Gallery({ cards }) {
     )
 }
 
+export default function Page() {
+    return <Gallery cards={cards} />
+}
+
 const cards = [null, null, null, null, null]
-export default function Home() {
-    const iframeSelector = 'iframe'
+export function Home() {
+    const iframeSelector = 'iframe' // TODO more specific selector using iframe[src=this url]
     const handleResize = useCallback(
         throttle(function handleResize() {
             if (!parent?.document) {
